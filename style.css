@@ -1,0 +1,210 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 16px;
+    font-family: system-ui, sans-serif;
+    background: #000000;
+    color: #ffffff;
+}
+
+/* TÍTULOS */
+h1 {
+    text-align: center;
+    color: #ff7a00;
+    margin-bottom: 12px;
+}
+
+h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+h4 {
+    text-align: center;
+    color: rgb(0, 139, 30);
+    margin-bottom: 10px;
+}
+
+h5 {
+    text-align: center;
+    color: red;
+    margin-bottom: 10px;
+
+}
+
+/* DIA */
+.dia {
+    margin-bottom: 36px;
+}
+
+/* LISTA HORIZONTAL (ROLAGEM BONITA) */
+.lista-exercicios {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 14px 8px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ESCONDE BARRA */
+.lista-exercicios::-webkit-scrollbar {
+    display: none;
+}
+
+/* CARD */
+.exercicio {
+    background: #ffffff;
+    color: #000000;
+    padding: 14px;
+    /* corrigido: antes estava 14x */
+    border-radius: 18px;
+    min-width: 280px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    text-align: center;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    /* para alinhar botão sempre embaixo */
+    justify-content: space-between;
+}
+
+/* EFEITO DE TOQUE */
+.exercicio:active {
+    transform: scale(0.97);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* IMAGEM */
+.exercicio img {
+    width: 100%;
+    height: 190px;
+    object-fit: contain;
+    background: #f2f2f2;
+    border-radius: 14px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* TEXTO */
+.serie {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+/* BOTÃO CONCLUÍDO */
+.check-concluido {
+    display: block;
+    margin-top: 12px;
+}
+
+.check-concluido input {
+    display: none;
+    /* esconde checkbox real */
+}
+
+.check-concluido span {
+    display: inline-block;
+    width: calc(100% - 20px);
+    /* espaçamento lateral */
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 999px;
+    background: #444;
+    /* botão escuro no modo dark */
+    color: #ccc;
+    /* texto claro */
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* HOVER */
+.check-concluido span:hover {
+    background: #555;
+}
+
+/* QUANDO MARCADO */
+.check-concluido input:checked+span {
+    background: linear-gradient(135deg, #00c853, #00a846);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 200, 83, 0.5);
+}
+
+/* BARRAS */
+.barra-topo,
+.barra-rodape {
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #ff7a00, #ff4d00);
+    border-radius: 999px;
+}
+
+.barra-topo {
+    margin-bottom: 16px;
+}
+
+.barra-rodape {
+    margin-top: 24px;
+}
+
+/* RODAPÉ */
+.rodape {
+    width: 100%;
+    padding: 20px 0;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    border-top: 1px solid #ddd;
+}
+
+/* OBSERVAÇÕES */
+.observacoes {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 24px 12px;
+}
+
+/* IMAGENS DAS OBSERVAÇÕES */
+.observacoes img {
+    width: 90vw;
+    /* quase a tela inteira */
+    max-width: 420px;
+    /* limite pra não exagerar */
+    height: 280px;
+    /* bem mais alta */
+    object-fit: contain;
+    background: #000000;
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+
+.exercicio {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 16px;
+    margin-bottom: 26px;
+    position: relative;
+}
+
+/* LINHA FINA ENTRE OS CARDS */
+.exercicio:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: -14px;
+    left: 12%;
+    width: 76%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
+}
